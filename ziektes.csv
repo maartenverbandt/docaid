@@ -1,0 +1,56 @@
+Moeheid/ziektegevoel als symptoomdiagnose,0,-1,0,+1,0,+1,0,-1,-1,0,0,0,0,0,-1,0,0,0
+andere virusziekten,1,+1,0,0,0,+1,0,0,-1,0,0,0,+1,0,+1,0,-1,0
+BLWI,0,+1,0,0,0,+1,0,0,-1,0,-1,0,+1,0,+1,0,-1,0
+ (acute) Infectieuze aandoening van de luchtwegen,0,+1,0,-1,0,+1,0,0,-1,0,-1,0,+1,0,+1,0,-1,0
+Acute bronchitis/bronchiolitis,-1,+1,0,-1,0,+1,0,0,-1,0,-1,0,+1,0,+1,0,-1,0
+Sinusitis: Acuut,-1,+1,0,-1,0,+1,0,-1,-1,0,-1,0,+1,0,+1,0,-1,0
+Sinusitis: Chronisch,1,0,0,+1,0,+1,0,0,-1,0,-1,0,+1,0,+1,0,-1,0
+Influenza exclusief pneumonie,-1,+1,0,-1,0,0,0,+1,-1,0,-1,0,+1,0,+1,0,-1,0
+Acute tonsillitis,-1,+1,0,-1,0,+1,-1,-1,0,0,-1,0,+1,0,+1,0,-1,0
+Pneumonie,0,+1,0,-1,0,0,0,+1,0,0,-1,0,+1,0,0,0,-1,0
+Mononucleosis infectiosa,1,+1,0,0,0,+1,-1,-1,0,0,-1,0,+1,0,+1,0,-1,0
+Otitis media acuta/myringitis,-1,+1,0,-1,0,+1,-1,-1,-1,0,0,0,0,0,+1,0,-1,0
+Acute laryngitis/trache&iumltis,-1,+1,0,-1,0,+1,-1,-1,-1,0,-1,0,+1,0,+1,0,-1,0
+Hypertrofie/chronische infectie tonsillen/adeno&iumld,1,0,0,+1,0,+1,0,-1,-1,0,0,0,+1,0,+1,0,-1,0
+Depressie,0,-1,0,+1,0,0,0,0,0,0,-1,0,-1,0,-1,0,+1,0
+Crisis/voorbijgaande stressreactie,0,-1,0,-1,0,0,0,0,-1,0,-1,0,-1,0,-1,0,+1,0
+Angstig/nerveus/gespannen gevoel,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,+1,0
+Down/depressief gevoel,0,-1,0,+1,0,0,0,0,0,0,-1,0,-1,0,-1,0,+1,0
+Hyperventilatie,1,-1,0,0,0,0,0,-1,-1,0,0,0,-1,0,-1,0,+1,0
+Problemen met werksituatie (+ burn-out),1,-1,0,+1,0,+1,+1,-1,0,0,-1,0,-1,0,-1,0,+1,0
+Andere psychische stoornis,0,-1,0,+1,0,0,0,0,0,0,-1,0,-1,0,-1,0,+1,0
+CVS/fibromyalgie,0,-1,0,+1,0,0,0,-1,-1,0,-1,0,-1,0,-1,0,+1,0
+Ferriprieve anemie,1,-1,0,+1,0,0,0,0,-1,0,0,0,-1,0,-1,0,-1,0
+Hartfalen,0,-1,0,+1,0,-1,0,+1,-1,0,-1,0,+1,0,-1,0,-1,0
+Hyperthyreoidie,1,0,0,+1,0,0,+1,0,+1,0,0,0,-1,0,-1,0,-1,0
+Hypothyreoidie,1,-1,0,+1,0,0,+1,0,-1,0,-1,0,-1,0,-1,0,-1,0
+Diabetes mellitus ,0,-1,0,+1,0,-1,+1,+1,+1,0,0,0,-1,0,-1,0,-1,0
+OSAS,1,-1,0,+1,0,-1,+1,+1,-1,0,-1,0,-1,0,-1,0,-1,0
+COPD,0,0,0,+1,0,-1,+1,+1,0,0,0,0,+1,0,-1,0,-1,0
+Zwangerschap,1,-1,0,+1,0,+1,-1,-5,0,0,0,0,-1,0,-1,0,-1,0
+Inflammatoire darmaandoeningen ,0,1,0,+1,0,+1,0,-1,+1,0,0,0,-1,0,-1,0,-1,0
+Bijwerking van een geneesmiddel,1,-1,0,0,0,-1,0,+1,0,0,0,0,0,0,-1,0,0,0
+Tuberculose,0,+1,0,+1,0,0,0,0,+1,0,0,0,+1,0,-1,0,-1,0
+HIV,0,+1,0,+1,0,0,0,0,+1,0,0,0,0,0,+1,0,-1,0
+Lyme,0,0,0,+1,0,0,0,0,-1,0,0,0,-1,0,0,0,-1,0
+Hepatitis C,0,0,0,+1,0,0,0,0,-1,0,0,0,-1,0,-1,0,-1,0
+Lymfoproliferatieve aandoeningen,0,+1,0,+1,0,-1,0,+1,+1,0,0,0,-1,0,-1,0,-1,0
+Maligniteiten,0,-1,0,+1,0,-1,0,+1,+1,0,0,0,0,0,-1,0,-1,0
+Ernstige nierinsuffici&eumlntie,0,-1,0,+1,0,-1,0,+1,0,0,0,0,-1,0,-1,0,-1,0
+Ernstige leverinsuffici&eumlntie,0,-1,0,+1,0,-1,0,+1,0,0,0,0,-1,0,-1,0,-1,0
+ALS,0,-1,0,+1,0,0,+1,0,0,0,0,0,-1,0,-1,0,0,0
+Infectieuze endocarditis,0,+1,0,0,0,0,0,0,+1,0,-1,0,-1,0,-1,0,-1,0
+Reumato&iumlde arthritis,0,+1,0,+1,0,+1,+1,-1,+1,0,0,0,-1,0,-1,0,-1,0
+Systemische lupus erythematosus,0,+1,0,+1,0,+1,0,-1,+1,0,0,0,-1,0,-1,0,-1,0
+Polymyalgia rheumatica,0,+1,0,+1,0,-1,0,+1,+1,0,-1,0,-1,0,-1,0,-1,0
+het syndroom van Sj&oumlgren,0,0,0,+1,0,0,+1,-1,0,0,0,0,-1,0,+1,0,-1,0
+Sarco&iumldose,-1,+1,0,+1,0,+1,0,0,0,0,0,0,+1,0,-1,0,-1,0
+Verhoogde pulmonale druk en pulmonale hypertensie,-1,-1,0,+1,0,-1,0,+1,0,0,0,0,+1,0,-1,0,-1,0
+Nefrotisch syndroom,-1,-1,0,+1,0,-1,0,+1,-1,0,0,0,-1,0,-1,0,-1,0
+Hypocortisolemie,0,-1,0,+1,0,0,0,0,+1,0,0,0,-1,0,-1,0,-1,0
+Hypercalci&eumlmie,0,-1,0,+1,0,-1,0,0,0,0,0,0,-1,0,-1,0,-1,0
+MS,-1,-1,0,+1,0,0,+1,-1,0,0,0,0,-1,0,-1,0,-1,0
+Geheugenstoornissen,0,-1,0,+1,0,-1,0,+1,0,0,0,0,-1,0,-1,0,-1,0
+Narcolepsie en andere hypersomnie&eumln van centrale oorsprong,0,-1,0,+1,0,0,0,0,-1,0,+1,0,-1,0,-1,0,-1,0
+Ziekte van Parkinson,0,-1,0,+1,0,-1,0,+1,-1,0,-1,0,-1,0,-1,0,-1,0
+Myasthenia gravis en myastheen syndroom,0,-1,0,+1,0,0,0,0,-1,0,0,0,-1,0,-1,0,-1,0

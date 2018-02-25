@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<img src="logo.png" height="60" hspace="20" vspace="5">
+
+<table>
+<colgroup>
+  <col class="left">
+  <col class="middle">
+  <col class="right">
+</colgroup>
+<tr>
+<td>
+<table style="height: 1px">
+  <tr>
+  <td>Koorts?</td>
+  <td><select id="koorts">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+    </select></td>
+  </tr>
+  
+  <tr>
+  <td>Duur?</td> 
+  <td><select id="duur">
+      <option value="0">>6 weken</option>
+      <option value="1"><6 weken</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+
+  
+  <tr>
+  <td>Leeftijd?</td>
+  <td><select id="leeftijd">
+      <option value="0"><40</option>
+      <option value="1">40-70</option>
+      <option value="2">>70</option>
+      <option value="3"></option>
+  </select></td>
+  </tr>
+
+  
+  <tr>
+  <td>Gewichtsverlies?</td>
+  <td><select id="gewicht">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+
+  
+  <tr>
+  <td>Uitgeslapen?</td>
+  <td><select id="uitgeslapen">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+
+  
+  <tr>
+  <td>Hoest?</td> 
+  <td><select id="luchtwegklachten">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+
+  
+  <tr>
+  <td>Keelpijn?</td>
+  <td><select id="keelpijn">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+  
+  <tr>
+  <td>Angst?</td>
+  <td><select id="angst">
+      <option value="0">ja</option>
+      <option value="1">nee</option>
+      <option value="2"></option>
+  </select></td>
+  </tr>
+</table>
+<button type="button" onclick="compute()">compute</button>
+</td>
+
+<td>
+<p id="diagnose"></p>
+</td>
+
+<td>
+<p id="info"></p>
+</td>
+</tr>
+
+</table>
+
+
+
+<script src="ziektes.js"></script> <!-- import ziektes -->
+<script src="bubblesort.js"></script> <!-- import sorting -->
+
+<script>
+// Functie om de correlatie tussen ziekte en eigenschap te bepalen
+function correlatie(eigenschap,ziekte) {
+    var e = document.getElementById(eigenschap);
+    var index = parseInt(e.options[e.selectedIndex].value);
+
+    var waarde = 0;
+    if(index < ziekte[eigenschap].length) {
+        waarde = ziekte[eigenschap][index];
+    }
+    return waarde;
+}
+
+function showinfo(id) {
+    var text = "<h2>" + ziektes[id].name + "</h2><h3>Anamnese</h3>" + ziektes[id].anamnese + "<h3>Klinisch onderzoek</h3>" + ziektes[id].KO + "<h3>Technisch onderzoek</h3>" + ziektes[id].TO + "<h3>Meer info</h3>" + ziektes[id].hyperlink;
+    
+    document.getElementById("info").innerHTML = text;
+}
+
+function split(keys, values) {
+    // Sort the keys based on the values
+    var sort = bubblesort(values);
+    sort = sort[1];
+    
+    var sorted_keys = [];
+    for (i = 0; i < values.length; i++) {
+        sorted_keys[i] = keys[sort[i]];
+    }
+
+    // Split sort in probable, neutral and not probable
+    var i = 0;
+    while ( values[sort[i]] > 0 ) { i++; }
+    var begin_neutral = i;
+    while ( values[sort[i]] >= 0 ) { i++; }    
+    var end_neutral = i;
+    
+    var likely = sorted_keys.slice(0,begin_neutral);
+    var neutral = sorted_keys.slice(begin_neutral, end_neutral);
+    var not_likely = sorted_keys.slice(end_neutral);
+
+    return [likely,neutral,not_likely];
+}
+
+eigenschappen = ["koorts", "duur", "leeftijd", "gewicht", "uitgeslapen", "luchtwegklachten", "keelpijn", "angst"];
+
+// Functie om alle waarschijnlijkheden te bepalen
+function compute() {
+    var total_cor = [];
+    for (i = 0; i < ziektes.length; i++) {
+        total_cor[i] = 0;
+        for (j = 0; j < eigenschappen.length; j++) {
+            total_cor[i] += correlatie(eigenschappen[j],ziektes[i]);
+        }
+    }
+    
+    // make list of bold, neutral and italic
+    var bolds = []; var bold_cor = [];
+    var plains = []; var plain_cor = [];
+    var italics = []; var italic_cor = [];
+    for (i = 0; i < ziektes.length; i++) {
+        if (ziektes[i].belang == 1) {
+            bolds[bolds.length] = i;
+            bold_cor[bold_cor.length] = total_cor[i];
+        } else if (ziektes[i].belang == -1) {
+            italics[italics.length] = i;
+            italic_cor[italic_cor.length] = total_cor[i];
+        } else {
+            plains[plains.length] = i;
+            plain_cor[plain_cor.length] = total_cor[i];
+        }
+    }
+    
+    var text;
+    var likely_text = "<div style=\"display: inline-block; vertical-align:top; min-width:250px;\"><h3>Meer waarschijnlijk:</h3><ul>";
+    var neutral_text = "<div style=\"display: inline-block; vertical-align:top; min-width:250px;\"><h3>Neutraal:</h3><ul>";
+    var unlikely_text = "<div style=\"display: inline-block; vertical-align:top; min-width:250px;\"><h3>Minder Waarschijnlijk:</h3><ul>";
+    
+    // handle bolds first
+    var sorteds = [];
+    sorteds[0] = split(bolds, bold_cor);
+    sorteds[1] = split(plains, plain_cor);
+    sorteds[2] = split(italics, italic_cor);
+    for (k = 0; k < sorteds.length; k++) {
+        var sorted = sorteds[k];
+        for (i = 0; i < sorted[0].length; i++) {
+            likely_text += "<li><a onClick=\"showinfo(" + sorted[0][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[0][i]].name + ": " + total_cor[sorted[0][i]].toString() + "</a></li>"
+        }
+        for (i = 0; i < sorted[1].length; i++) {
+            neutral_text += "<li><a onClick=\"showinfo(" + sorted[1][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[1][i]].name + ": " + total_cor[sorted[1][i]].toString() + "</a></li>"
+        }
+        for (i = 0; i < sorted[2].length; i++) {
+            unlikely_text += "<li><a onClick=\"showinfo(" + sorted[2][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[2][i]].name + ": " + total_cor[sorted[2][i]].toString() + "</a></li>"
+        }
+    }
+    
+    //<a onClick="a();" style="cursor: pointer; cursor: hand;">*click here*</a>
+    
+    /*for (i = (sort.length-1); i >= 0; i--) {
+        text = "<li>" + ziektes[sort[i]].name + ": " + total_cor[sort[i]].toString() + "</li>";
+        if(total_cor[sort[i]] > 0) {
+            likely_text += text;
+        } else if(total_cor[sort[i]] == 0) {
+            neutral_text += text;
+        } else {
+            unlikely_text += text;
+        }
+    }*/
+    
+    likely_text += "</ul></div>";
+    neutral_text += "</ul></div>";
+    unlikely_text += "</ul></div>";
+    
+    document.getElementById("diagnose").innerHTML = likely_text + neutral_text + unlikely_text;
+}
+</script>
+
+</body>
+</html> 
