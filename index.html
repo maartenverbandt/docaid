@@ -94,7 +94,9 @@
   </select></td>
   </tr>
 </table>
-<button type="button" onclick="compute()">compute</button>
+<center>
+    <button type="button" onclick="compute()">volgende</button>
+</center>
 </td>
 
 <td>
@@ -127,7 +129,7 @@ function correlatie(eigenschap,ziekte) {
 }
 
 function showinfo(id) {
-    var text = "<h2>" + ziektes[id].name + "</h2><h3>Anamnese</h3>" + ziektes[id].anamnese + "<h3>Klinisch onderzoek</h3>" + ziektes[id].KO + "<h3>Technisch onderzoek</h3>" + ziektes[id].TO + "<h3>Meer info</h3>" + ziektes[id].hyperlink;
+    var text = "<h2>" + ziektes[id].name + "</h2><h3>Anamnese en symptomen</h3>" + ziektes[id].anamnese + "<h3>Klinisch onderzoek</h3>" + ziektes[id].KO + "<h3>Technisch onderzoek en diagnose</h3>" + ziektes[id].TO + "<h3>Meer info</h3>" + ziektes[id].hyperlink;
     
     document.getElementById("info").innerHTML = text;
 }
@@ -195,16 +197,23 @@ function compute() {
     sorteds[0] = split(bolds, bold_cor);
     sorteds[1] = split(plains, plain_cor);
     sorteds[2] = split(italics, italic_cor);
+    var showcor = false;
     for (k = 0; k < sorteds.length; k++) {
         var sorted = sorteds[k];
         for (i = 0; i < sorted[0].length; i++) {
-            likely_text += "<li><a onClick=\"showinfo(" + sorted[0][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[0][i]].name + ": " + total_cor[sorted[0][i]].toString() + "</a></li>"
+            likely_text += "<li><a onClick=\"showinfo(" + sorted[0][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[0][i]].name;
+            if (showcor) {likely_text += ": " + total_cor[sorted[0][i]].toString(); }
+            likely_text += "</a></li>";
         }
         for (i = 0; i < sorted[1].length; i++) {
-            neutral_text += "<li><a onClick=\"showinfo(" + sorted[1][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[1][i]].name + ": " + total_cor[sorted[1][i]].toString() + "</a></li>"
+            neutral_text += "<li><a onClick=\"showinfo(" + sorted[1][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[1][i]].name;
+            if (showcor) {neutral_text += ": " + total_cor[sorted[1][i]].toString(); }
+            neutral_text += "</a></li>";
         }
         for (i = 0; i < sorted[2].length; i++) {
-            unlikely_text += "<li><a onClick=\"showinfo(" + sorted[2][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[2][i]].name + ": " + total_cor[sorted[2][i]].toString() + "</a></li>"
+            unlikely_text += "<li><a onClick=\"showinfo(" + sorted[2][i] + ");\" style=\"cursor: pointer; cursor: hand;\">" + ziektes[sorted[2][i]].name;
+            if (showcor) {unlikely_text += ": " + total_cor[sorted[2][i]].toString(); }
+            unlikely_text += "</a></li>";
         }
     }
     
